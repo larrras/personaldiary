@@ -3,8 +3,8 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta property="og:title" content="My website title" />
-    <meta property="og:description" content="Summary of the contents of the page you are viewing" />
+    <meta property="og:title" content="Personal Diary" />
+    <meta property="og:description" content="my safe place to write whatever I want to write about how my day went, my feelings, about something pleasant or painful, and about something that cannot be forgotten." />
     <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}" />
 
     <meta charset="utf-8" />
@@ -40,6 +40,9 @@
                         let title = rows[i]['title']
                         let content = rows[i]['content']
                         let file = rows[i]['file']
+
+                        let time = rows[i]['time'] || '??.??.???'
+
                         let profile = rows[i]['profile'];
 
                         let temp_html = `
@@ -61,7 +64,7 @@
               <p class="card-text">
                 ${content}
               </p>
-              <h6 class="card-subtitle mb-2 text-muted">2022.02.15</h6>
+              <h6 class="card-subtitle mb-2 text-muted">${time}</h6>
             </div>
           </div>`
                         $("#cards-box").append(temp_html)
